@@ -20,6 +20,19 @@
 			<email>colombetj@gmail.com</email>
 		</developer>
 	</developers>
+	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/garganttua/pegasus-server-plugin-maker</url>
+		</snapshotRepository>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/garganttua/pegasus-server-plugin-maker</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
