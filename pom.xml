@@ -36,8 +36,8 @@
 	
 	<repositories>
 		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
+			<id>github pegasus core</id>
+			<name>github pegasus core</name>
 			<url>https://maven.pkg.github.com/garganttua/pegasus-core</url>
 			<snapshots>
 				<enabled>true</enabled>
