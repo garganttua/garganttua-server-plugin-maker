@@ -1,0 +1,62 @@
+package com.gtech.pegasus.core.maven.plugin;
+
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.plugins.annotations.Parameter;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+public class PGDependency implements Comparable<PGDependency>{
+
+	@Getter
+	@Setter
+	@Parameter(property = "groupId")
+    private String groupId;
+	
+	@Getter
+	@Setter
+	@Parameter(property = "artifactId")
+    private String artifactId;
+
+	@Getter
+	@Setter
+	@Parameter(property = "type")
+	//exclusion/provided
+	private String type = "";
+	
+	@Getter
+	@Setter
+	@Parameter(property = "version")
+	private String version = "";
+	
+	@Setter
+	@Getter
+	private Artifact artifact;
+
+	@Override
+	public boolean equals(Object obj) {
+		return compareTo((PGDependency) obj)==0?true:false;
+	}
+	
+	@Override
+	public int compareTo(PGDependency o) {
+		if( o.artifactId.equals(this.artifactId) && o.groupId.equals(this.groupId) ) {
+			return 0;
+		}
+		return -1;
+	}
+	
+	@Override
+	public String toString() {
+		return this.groupId+":"+this.artifactId;
+	}
+
+	public String toXml() {
+		return "<dependency>\n   <groupId>"+this.groupId+"</groupId>\n   <artifactId>"+this.artifactId+"</artifactId>\n   <type>included</type>\n</dependency>";
+	}
+	
+}
