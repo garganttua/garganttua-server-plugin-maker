@@ -17,7 +17,7 @@ public class ZipUtils {
     private List<File> confList;
     
     @Setter
-    private PGApplicationPluginInfos infos;
+    private GGServerApplicationPluginInfos infos;
 
     public ZipUtils() {
     	libList = new ArrayList < File > ();

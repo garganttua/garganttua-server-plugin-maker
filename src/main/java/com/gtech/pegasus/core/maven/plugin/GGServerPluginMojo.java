@@ -17,7 +17,7 @@ import org.apache.maven.project.MavenProject;
 /**
  */
 @Mojo(name = "peg", threadSafe = true, requiresDependencyResolution = ResolutionScope.RUNTIME, requiresDependencyCollection = ResolutionScope.RUNTIME)
-public class PGPluginMojo extends AbstractMojo {
+public class GGServerPluginMojo extends AbstractMojo {
 
 	@Parameter(defaultValue = "${project.build.directory}")
 	private File buildDirectory;
@@ -29,7 +29,7 @@ public class PGPluginMojo extends AbstractMojo {
 	private MavenProject mavenProject;
 
 	@Parameter(property = "dependencies")
-    private List<PGDependency> dependencies;
+    private List<GGServerDependency> dependencies;
 	
 	@Parameter(property = "files")
     private List<String> files;
@@ -37,13 +37,13 @@ public class PGPluginMojo extends AbstractMojo {
 	
 	public void execute() throws MojoExecutionException {
 		ZipUtils zip = new ZipUtils();
-		PGApplicationPluginInfos infos = new PGApplicationPluginInfos();
-		List<PGDependency> libs = new ArrayList<PGDependency>();
+		GGServerApplicationPluginInfos infos = new GGServerApplicationPluginInfos();
+		List<GGServerDependency> libs = new ArrayList<GGServerDependency>();
 		getLog().info("Build dir "+this.buildDirectory.getAbsolutePath());
 		for (final Artifact artifact : mavenProject.getArtifacts()) {
-			PGDependency e = new PGDependency(artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion(), "included", artifact);
+			GGServerDependency e = new GGServerDependency(artifact.getGroupId(), artifact.getArtifactId(), artifact.getVersion(), "included", artifact);
 			
-			for( PGDependency econf: this.dependencies ) {
+			for( GGServerDependency econf: this.dependencies ) {
 				if( econf.equals(e) ) {
 					e.setType(econf.getType());
 					break;
@@ -75,7 +75,7 @@ public class PGPluginMojo extends AbstractMojo {
 		getLog().info("Created "+libDirF.getAbsolutePath());
 		
 		//Copy the libs
-		for( PGDependency lib: libs) {
+		for( GGServerDependency lib: libs) {
 			if( lib.getType().equals("included") ) {
 				File libf = lib.getArtifact().getFile();
 				

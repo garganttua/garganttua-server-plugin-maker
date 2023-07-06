@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class PGDependency implements Comparable<PGDependency>{
+public class GGServerDependency implements Comparable<GGServerDependency>{
 
 	@Getter
 	@Setter
@@ -39,11 +39,11 @@ public class PGDependency implements Comparable<PGDependency>{
 
 	@Override
 	public boolean equals(Object obj) {
-		return compareTo((PGDependency) obj)==0?true:false;
+		return compareTo((GGServerDependency) obj)==0?true:false;
 	}
 	
 	@Override
-	public int compareTo(PGDependency o) {
+	public int compareTo(GGServerDependency o) {
 		if( o.artifactId.equals(this.artifactId) && o.groupId.equals(this.groupId) ) {
 			return 0;
 		}

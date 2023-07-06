@@ -20,7 +20,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class PGApplicationPluginInfos {
+public class GGServerApplicationPluginInfos {
 
 	private String infosVersion;
 
