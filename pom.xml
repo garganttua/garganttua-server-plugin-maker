@@ -23,22 +23,22 @@
 	
 	<distributionManagement>
 		<snapshotRepository>
-			<id>github</id>
-			<name>GitHub Packages</name>
+			<id>github garganttua server plugin maker</id>
+			<name>github garganttua server plugin maker</name>
 			<url>https://maven.pkg.github.com/garganttua/garganttua-server-plugin-maker</url>
 		</snapshotRepository>
 		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
+			<id>github garganttua server plugin maker</id>
+			<name>github garganttua server plugin maker</name>
 			<url>https://maven.pkg.github.com/garganttua/garganttua-server-plugin-maker</url>
 		</repository>
 	</distributionManagement>
 	
 	<repositories>
 		<repository>
-			<id>github garganttua core</id>
-			<name>github garganttua core</name>
-			<url>https://maven.pkg.github.com/garganttua/garganttua-core</url>
+			<id>github garganttua server core</id>
+			<name>github garganttua server core</name>
+			<url>https://maven.pkg.github.com/garganttua/garganttua-server-core</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
