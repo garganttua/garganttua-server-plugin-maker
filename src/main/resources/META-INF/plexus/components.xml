@@ -5,13 +5,13 @@
 
 		<component>
 			<role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
-			<role-hint>peg</role-hint>
+			<role-hint>ggp</role-hint>
 			<implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping
 			</implementation>
 			<configuration>
 				<phases>
 					<package>
-						com.gtech:pegasus-server-plugin-maker:1.0.0-SNAPSHOT:peg
+						com.garganttua:garganttua-server-plugin-maker:1.0.0-SNAPSHOT:peg
 					</package>
 					<install>
 						org.apache.maven.plugins:maven-install-plugin:2.4:install
@@ -24,10 +24,10 @@
 		</component>
 		<component>
 			<role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-			<role-hint>pegasus-core-maven</role-hint>
+			<role-hint>garganttua-server-core-maven</role-hint>
 			<implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
 			<configuration>
-				<type>peg</type>
+				<type>ggp</type>
 				<language>java</language>
 				<addedToClasspath>true</addedToClasspath>
 			</configuration>

@@ -1,4 +1,4 @@
-package com.gtech.pegasus.core.maven.plugin;
+package com.garganttua.server.modules.maven.plugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -118,7 +118,7 @@ public class GGServerPluginMojo extends AbstractMojo {
 		
 		//Generate the descriptor file
 		infos.setInfosVersion("1.0");
-		infos.setCreatedBy("pegasus-core-maven-plugin-1.0.0-SNAPSHOT");
+		infos.setCreatedBy("GARGANTTUA_SERVER-core-maven-plugin-1.0.0-SNAPSHOT");
 		infos.setIssuer("Gtech");
 		infos.setName(this.mavenProject.getArtifactId());
 		infos.setVersion(this.mavenProject.getVersion());

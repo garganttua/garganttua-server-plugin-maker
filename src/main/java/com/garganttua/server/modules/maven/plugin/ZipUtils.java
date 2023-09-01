@@ -1,4 +1,4 @@
-package com.gtech.pegasus.core.maven.plugin;
+package com.garganttua.server.modules.maven.plugin;
 
 import java.io.File;
 import java.io.FileInputStream;
