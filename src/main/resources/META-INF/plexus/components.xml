@@ -11,7 +11,7 @@
 			<configuration>
 				<phases>
 					<package>
-						com.garganttua:garganttua-server-plugin-maker:1.0.0:ggp
+						com.garganttua:garganttua-server-plugin-maker:1.0.2:ggp
 					</package>
 					<install>
 						org.apache.maven.plugins:maven-install-plugin:2.4:install

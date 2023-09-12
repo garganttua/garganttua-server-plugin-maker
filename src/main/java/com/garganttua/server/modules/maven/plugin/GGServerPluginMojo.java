@@ -16,7 +16,7 @@ import org.apache.maven.project.MavenProject;
 
 /**
  */
-@Mojo(name = "peg", threadSafe = true, requiresDependencyResolution = ResolutionScope.RUNTIME, requiresDependencyCollection = ResolutionScope.RUNTIME)
+@Mojo(name = "ggp", threadSafe = true, requiresDependencyResolution = ResolutionScope.RUNTIME, requiresDependencyCollection = ResolutionScope.RUNTIME)
 public class GGServerPluginMojo extends AbstractMojo {
 
 	@Parameter(defaultValue = "${project.build.directory}")
@@ -132,7 +132,7 @@ public class GGServerPluginMojo extends AbstractMojo {
 		}
 
 		//Generate archive
-		File artifact = zip.zipIt(buildDir+".peg");
+		File artifact = zip.zipIt(buildDir+".ggp");
 		
 		Build build = new Build();
 		build.setFinalName(buildDir);
