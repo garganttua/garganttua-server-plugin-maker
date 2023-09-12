@@ -11,7 +11,7 @@
 			<configuration>
 				<phases>
 					<package>
-						com.garganttua:garganttua-server-plugin-maker:1.0.0-SNAPSHOT:peg
+						com.garganttua:garganttua-server-plugin-maker:1.0.0:ggp
 					</package>
 					<install>
 						org.apache.maven.plugins:maven-install-plugin:2.4:install
@@ -24,7 +24,7 @@
 		</component>
 		<component>
 			<role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-			<role-hint>garganttua-server-core-maven</role-hint>
+			<role-hint>ggp</role-hint>
 			<implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
 			<configuration>
 				<type>ggp</type>
