@@ -90,7 +90,7 @@ public class GGServerPluginMojo extends AbstractMojo {
 				zip.addLib(lib.getArtifact().getFile());
 			} else if( lib.getType().equals("provided") ) {
 				
-				if( lib.getArtifact().getFile().getName().endsWith(".ped") ) {
+				if( lib.getArtifact().getFile().getName().endsWith(".ggp") ) {
 					infos.addRequiredPlugin(lib.getArtifact());
 				} else {
 					infos.addRequiredLib(lib.getArtifact());
@@ -118,8 +118,8 @@ public class GGServerPluginMojo extends AbstractMojo {
 		
 		//Generate the descriptor file
 		infos.setInfosVersion("1.0");
-		infos.setCreatedBy("GARGANTTUA_SERVER-core-maven-plugin-1.0.0-SNAPSHOT");
-		infos.setIssuer("Gtech");
+		infos.setCreatedBy("garganttua-server-plugin-maker-1.0.2");
+		infos.setIssuer("Garganttua");
 		infos.setName(this.mavenProject.getArtifactId());
 		infos.setVersion(this.mavenProject.getVersion());
 		

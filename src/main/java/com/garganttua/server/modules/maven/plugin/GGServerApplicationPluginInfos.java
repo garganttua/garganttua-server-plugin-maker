@@ -53,7 +53,7 @@ public class GGServerApplicationPluginInfos {
 			folder.mkdirs();
 		}
 
-		this.file = new File(folder.getAbsolutePath() + File.separator + "infos.ped");
+		this.file = new File(folder.getAbsolutePath() + File.separator + "infos.ggd");
 		System.out.println("Writing file "+this.file.getAbsolutePath());
 		
 		Files.write(this.file.toPath(), this.toString().getBytes());
