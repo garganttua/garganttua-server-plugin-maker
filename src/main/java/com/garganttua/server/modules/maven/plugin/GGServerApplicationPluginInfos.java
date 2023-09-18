@@ -1,10 +1,15 @@
 package com.garganttua.server.modules.maven.plugin;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 
 import org.apache.maven.artifact.Artifact;
 
@@ -62,18 +67,16 @@ public class GGServerApplicationPluginInfos {
 	}
 
 	public String toString() {
+		Manifest manifest = new Manifest();
+		
+		manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
+		manifest.getMainAttributes().put(new Attributes.Name("Descriptor-Version"), this.infosVersion);
+		manifest.getMainAttributes().put(new Attributes.Name("Created-By"), this.createdBy);
+		manifest.getMainAttributes().put(new Attributes.Name("Issuer"), this.issuer);
+		manifest.getMainAttributes().put(new Attributes.Name("Plugin-Title"), this.name);
+		manifest.getMainAttributes().put(new Attributes.Name("Plugin-Version"), this.version);
+
 		StringBuilder sb = new StringBuilder();
-		sb.append("Descriptor-Version: ");
-		sb.append(this.infosVersion);
-		sb.append("\nCreated-By: ");
-		sb.append(this.createdBy);
-		sb.append("\nIssuer: ");
-		sb.append(this.issuer);
-		sb.append("\nPlugin-Title: ");
-		sb.append(this.name);
-		sb.append("\nPlugin-Version: ");
-		sb.append(this.version);
-		sb.append("\nRequired-Plugins: ");
 		int i = 1;
 		for(Artifact artifact: this.requiredPlugins) {
 			sb.append(artifact.getGroupId());
@@ -82,12 +85,14 @@ public class GGServerApplicationPluginInfos {
 			sb.append(":");
 			sb.append(artifact.getVersion());
 			if( i != this.requiredPlugins.size() ) {
-				sb.append(";");
+				sb.append(" ");
 				i++;
 			}
 		}
+		manifest.getMainAttributes().put(new Attributes.Name("Required-Plugins"), sb.toString());
+
+		sb = new StringBuilder();
 		i=1;
-		sb.append("\nRequired-Libs: ");
 		for(Artifact artifact: this.requiredLibs) {
 			sb.append(artifact.getGroupId());
 			sb.append(":");
@@ -95,11 +100,24 @@ public class GGServerApplicationPluginInfos {
 			sb.append(":");
 			sb.append(artifact.getVersion());
 			if( i != this.requiredLibs.size() ) {
-				sb.append(";");
+				sb.append(" ");
 				i++;
 			}
 		}
-		return sb.toString();
+		manifest.getMainAttributes().put(new Attributes.Name("Required-Libs"), sb.toString());
+		
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		
+		try {
+			manifest.write(os);	
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		String str = os.toString(StandardCharsets.UTF_8);
+
+		System.out.println("Generated Manifest : \n"+str);
+		return str;
 	}
 
 }
